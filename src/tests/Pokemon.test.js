@@ -13,9 +13,9 @@ describe('Teste o componente <Pokemon.js />', () => {
     const image = screen.getByRole('img', { name: /pikachu sprite/i });
     expect(image.src).toBe('https://archives.bulbagarden.net/media/upload/b/b2/Spr_5b_025_m.png');
     expect(image.alt).toBe('Pikachu sprite');
-    expect(average).toBeInTheDocument();
-    expect(namePokemon).toBeInTheDocument();
-    expect(type).toBeInTheDocument();
+    expect(average).toHaveTextContent(/average weight: 6\.0 kg/i);
+    expect(namePokemon).toHaveTextContent(/pikachu/i);
+    expect(type).toHaveTextContent(/electric/i);
   });
   it('Teste se o card do Pokémon indicado na Pokédex contém um link de navegação para exibir detalhes deste Pokémon. O link deve possuir a URL /pokemon/<id>, onde <id> é o id do Pokémon exibido', () => {
     renderWithRouter(<App />);
