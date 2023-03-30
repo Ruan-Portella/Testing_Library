@@ -46,5 +46,13 @@ describe('Testa o componente Pokedex', () => {
       name: /all/i,
     });
     expect(buttonAll).toBeInTheDocument();
+    const buttonBug = screen.getByRole('button', {
+      name: /bug/i,
+    });
+    userEvent.click(buttonBug);
+    const Type = screen.getByTestId('pokemon-type');
+    expect(Type).toHaveTextContent(/bug/i);
+    userEvent.click(buttonAll);
+    expect(Type).toHaveTextContent(/electric/i);
   });
 });
